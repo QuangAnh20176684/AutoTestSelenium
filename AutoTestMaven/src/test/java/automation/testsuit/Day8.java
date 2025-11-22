@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 public class Day8 extends CommonBase {
     @Test
     public void locatorByID(){
-        driver = initDriver(CT_URL.URL);
+        driver = initDriverFireFox(CT_URL.URL);
         WebElement email = driver.findElement(By.id("email"));
         System.out.println(email);
 
@@ -19,7 +19,7 @@ public class Day8 extends CommonBase {
     }
     @Test
     public void locatorBylinktext(){
-        driver = initDriver(CT_URL.URL);
+        driver = initDriverFireFox(CT_URL.URL);
         WebElement linktext= driver.findElement(By.linkText("Sign up"));
         System.out.println(linktext);
 
