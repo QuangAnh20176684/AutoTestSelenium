@@ -24,10 +24,10 @@ public class login extends CommonBase {
     public void beforeTest() {
         driver=initDriverFireFox(CT_URL.loginURL);
     }
-    @AfterMethod
-    public void afterTest() {
-        closeDriver();
-    }
+//    @AfterMethod
+//    public void afterTest() {
+//        closeDriver();
+//    }
     @Test
     public void loginSuccess(){
 
@@ -86,7 +86,7 @@ public class login extends CommonBase {
     }
 
     @Test
-    public void logoutSuccess(){
+    public void logoutSuccess() throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.logintoPage("admin@gmail.com","12345678");
 
@@ -101,11 +101,12 @@ public class login extends CommonBase {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        wait.until(ExpectedConditions.visibilityOfElementLocated(
-                By.id("MyModal")
-        ));
+//        wait.until(ExpectedConditions.invisibilityOfElementLocated(
+//                By.xpath("//div[@class='modal-backdrop fade show']")
+//        ));
+        Thread.sleep(3000);
 
-        driver.findElement(By.xpath("//button[contains(text(),'Đăng xuất')]")).click();
+        driver.findElement(By.xpath("(//button[text()='Đăng xuất'])[2]")).click();
 
 
 
