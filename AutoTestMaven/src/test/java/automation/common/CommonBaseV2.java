@@ -95,6 +95,50 @@ public class CommonBaseV2 {
         }
     }
 
+    public int findIframeZalo() {
+        int frameCount=driver.findElements(By.tagName("iframe")).size();
+        
+
+        for(int i=0;i<frameCount;i++){
+            driver.switchTo().frame(i);
+            if(driver.findElements(By.xpath("//div[@class='za-chat__head-box']")).size()>0){
+                driver.switchTo().defaultContent();
+               return i;
+
+            }else {
+                driver.switchTo().defaultContent();
+                continue;
+            }
+
+        }
+        driver.switchTo().defaultContent();
+        return -1;
+
+
+    }
+    public int findIframezaloChat() {
+        int frameCount=driver.findElements(By.tagName("iframe")).size();
+
+
+        for(int i=0;i<frameCount;i++){
+            driver.switchTo().frame(i);
+            if(driver.findElements(By.xpath("//div[@class='box__welcome']//h1[contains(text(),'Xin chào!')]")).size()>0){
+                driver.switchTo().defaultContent();
+                return i;
+
+            }else {
+                driver.switchTo().defaultContent();
+                continue;
+            }
+
+        }
+        driver.switchTo().defaultContent();
+        return -1;
+
+
+    }
+
+
     public void closeDriver() {
         if (driver != null)
             driver.close();

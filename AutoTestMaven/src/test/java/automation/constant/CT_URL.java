@@ -7,4 +7,6 @@ public class CT_URL {
     public static String vibloURL="https://accounts.viblo.asia/login";
     public static String guruURL="https://demo.guru99.com/test/delete_customer.php";
     public static String seleULR="https://seleniumpractise.blogspot.com/2019/01/alert-demo.html";
+    public static String guruPageURL="https://demo.guru99.com/popup.php";
+    public static String mediaURL="https://mediamart.vn/";
 }
