@@ -97,7 +97,7 @@ public class CommonBaseV2 {
 
     public int findIframeZalo() {
         int frameCount=driver.findElements(By.tagName("iframe")).size();
-        
+
 
         for(int i=0;i<frameCount;i++){
             driver.switchTo().frame(i);
@@ -138,6 +138,47 @@ public class CommonBaseV2 {
 
     }
 
+    private WebDriver initFirefoxDriver() {
+        System.setProperty("webdriver.gecko.driver", "driver/geckodriver");
+        FirefoxDriver driver = new FirefoxDriver();
+
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
+        return driver;
+    }
+
+    private WebDriver initChromeDriver() {
+        System.setProperty("webdriver.chrome.driver", "driver/chromedriver");
+        ChromeOptions chromeOptions = new ChromeOptions();
+
+        Map<String, Object> chromePrefs = new HashMap<>();
+        chromePrefs.put("credentials_enable_service", false); // Disables the "save password" prompt
+        chromePrefs.put("profile.password_manager_enabled", false); // Disables the password manager
+        chromePrefs.put("profile.password_manager_leak_detection", false); // Disables the password leak detection
+        // warning
+        chromeOptions.setExperimentalOption("prefs", chromePrefs);
+
+        ChromeDriver driver = new ChromeDriver(chromeOptions);
+
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(50));
+        return driver;
+    }
+    public WebDriver setUpDriver(String browserName){
+        switch (browserName){
+            case "firefox":
+                driver=initFirefoxDriver();
+                break;
+                case "chrome":
+                    driver=initChromeDriver();
+                    break;
+                    default:
+                        System.out.println("Invalid browser, Using default");
+                        driver=initChromeDriver();
+                        break;
+        }
+        return driver;
+    }
 
     public void closeDriver() {
         if (driver != null)

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="TestSuite">
+
+<!--	<test name="Day 17 test firforx">-->
+<!--        <parameter name="browser" value="firefox"></parameter>-->
+<!--		<classes>-->
+
+<!--			<class name="automation.testsuit.BTVN_Day17" />-->
+
+<!--		</classes>-->
+<!--	</test>-->
+<!--    <test name="Day 17 tesst chrome">-->
+<!--        <parameter name="browser" value="chrome"></parameter>-->
+<!--        <classes>-->
+
+<!--            <class name="automation.testsuit.BTVN_Day17" />-->
+
+<!--        </classes>-->
+<!--    </test>-->
+    <test name="Day 18 tesst chrome1">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="URL" value="https://dienmaynhapkhaugiare.com.vn/dieu-hoa-1/dieu-hoa-daikin/?gclid=Cj0KCQiA7OqrBhD9ARIsAK3UXh2ZI8Sbv_LTnk6JxBpDhxfnlrdEcKHgmTqDHWrZNo9FS76WqhFQqVMaAvDjEALw_wcB"></parameter>
+        <classes>
+
+            <class name="automation.testsuit.BTVN_Day18" />
+
+        </classes>
+    </test>
+    <test name="Day 18 tesst chrome2">
+        <parameter name="browser" value="chrome"></parameter>
+        <parameter name="URL" value="https://bepantoan.vn/"></parameter>
+        <classes>
+
+            <class name="automation.testsuit.BTVN_Day18" />
+
+        </classes>
+    </test>
+    <test name="Day 18 tesst firefox1">
+        <parameter name="browser" value="firefox"></parameter>
+        <parameter name="URL" value="https://dienmaynhapkhaugiare.com.vn/dieu-hoa-1/dieu-hoa-daikin/?gclid=Cj0KCQiA7OqrBhD9ARIsAK3UXh2ZI8Sbv_LTnk6JxBpDhxfnlrdEcKHgmTqDHWrZNo9FS76WqhFQqVMaAvDjEALw_wcB"></parameter>
+        <classes>
+
+            <class name="automation.testsuit.BTVN_Day18" />
+
+        </classes>
+    </test>
+    <test name="Day 18 tesst firefox2">
+        <parameter name="browser" value="firefox"></parameter>
+        <parameter name="URL" value="https://bepantoan.vn/"></parameter>
+        <classes>
+
+            <class name="automation.testsuit.BTVN_Day18" />
+
+        </classes>
+    </test>
+
+
+</suite> <!-- Suite -->

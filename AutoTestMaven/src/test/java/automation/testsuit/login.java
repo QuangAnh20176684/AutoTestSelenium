@@ -1,6 +1,7 @@
 package automation.testsuit;
 
 import automation.common.CommonBase;
+import automation.common.CommonBaseV2;
 import automation.pagelocator.LoginPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;

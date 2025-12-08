@@ -9,4 +9,6 @@ public class CT_URL {
     public static String seleULR="https://seleniumpractise.blogspot.com/2019/01/alert-demo.html";
     public static String guruPageURL="https://demo.guru99.com/popup.php";
     public static String mediaURL="https://mediamart.vn/";
+    public static String hungAnhDienMayURL="https://dienmaynhapkhaugiare.com.vn/dieu-hoa-1/dieu-hoa-daikin/?gclid=Cj0KCQiA7OqrBhD9ARIsAK3UXh2ZI8Sbv_LTnk6JxBpDhxfnlrdEcKHgmTqDHWrZNo9FS76WqhFQqVMaAvDjEALw_wcB";
+    public static String bepAnToanURL="https://bepantoan.vn/";
 }
