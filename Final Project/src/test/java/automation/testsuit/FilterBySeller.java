@@ -61,91 +61,257 @@ public class FilterBySeller extends CommonBaseV2 {
 
 
     }
-    //todo: generate testcase cho cac nhan hang khac
-//    @Test
-//    public void filterBySellerKaff() throws InterruptedException {
-//        MainPage mainPage = new MainPage(driver);
-//        mainPage.AccessTo_Mayruachenbat();
-//
-//        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
-//
-//        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
-//        Assert.assertTrue(Page.filterByName("kaff","Kaff"));
-//
-//
-//
-//    }
-//    @Test
-//    public void filterBySellerEvilla() throws InterruptedException {
-//        MainPage mainPage = new MainPage(driver);
-//        mainPage.AccessTo_Mayruachenbat();
-//
-//        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
-//
-//        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
-//        Assert.assertTrue(Page.filterByName("sevilla","Sevilla"));
-//
-//
-//
-//    }
-//    @Test
-//    public void filterBySellerGrandX() throws InterruptedException {
-//        MainPage mainPage = new MainPage(driver);
-//        mainPage.AccessTo_Mayruachenbat();
-//
-//        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
-//
-//        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
-//        Assert.assertTrue(Page.filterByName("grandx","GRANDX"));
-//
-//
-//
-//    }
-//    @Test
-//    public void filterBySellerFagor() throws InterruptedException {
-//        MainPage mainPage = new MainPage(driver);
-//        mainPage.AccessTo_Mayruachenbat();
-//
-//        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
-//
-//        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
-//        Assert.assertTrue(Page.filterByName("fagor","Fagor"));
-//
-//
-//
-//    }
-//    @Test
-//    public void filterBySellerEurSun() throws InterruptedException {
-//        MainPage mainPage = new MainPage(driver);
-//        mainPage.AccessTo_Mayruachenbat();
-//
-//        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
-//
-//        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
-//        Assert.assertTrue(Page.filterByName("eurosun","Eurosun"));
-//
-//
-//
-//    }
-//// Todo: Clone not cac hang may rua chen bat con lai ma k can phai an xem them
-//
-//    //tu day la cac hang phai an xem them
-//@Test
-//public void filterBySellerHafele() throws InterruptedException {// case nay hay bi flaky test
-//    MainPage mainPage = new MainPage(driver);
-//    mainPage.AccessTo_Mayruachenbat();
-//
-//    justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
-//
-//    clickByJS(By.xpath("//h3[contains(text(),'HÃNG SẢN XUẤT')]/following-sibling::div[contains(@class,'category-menus')]//span[contains(text(),'Xem thêm')]"));
-//
-//    MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
-//    Assert.assertTrue(Page.filterByName("hafele","HAFELE"));
-//
-//
-//
-//}
-////Todo: Clone tiep cac hang can phai an xem them
+    @Test
+    public void filterBySellerKAFF() throws InterruptedException {
+        MainPage mainPage = new MainPage(driver);
+        mainPage.AccessTo_Mayruachenbat();
+
+        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
+
+        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
+
+        List<WebElement> productList=Page.getListProductBySeller("kaff");
+        if(productList.size()>0)
+        {
+            System.out.println(productList.size());
+            ItemListValidator Check= new ItemListValidator( driver);
+            Assert.assertTrue(Check.checkListProductBySeller(productList,"Kaff"));
+
+        }
+        else{
+            Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'empty')]")).isDisplayed());
+        }
+
+
+
+
+
+    }
+    @Test
+    public void filterBySellerSevila() throws InterruptedException {
+        MainPage mainPage = new MainPage(driver);
+        mainPage.AccessTo_Mayruachenbat();
+
+        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
+
+        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
+
+        List<WebElement> productList=Page.getListProductBySeller("sevilla");
+        if(productList.size()>0)
+        {
+            System.out.println(productList.size());
+            ItemListValidator Check= new ItemListValidator( driver);
+            Assert.assertTrue(Check.checkListProductBySeller(productList,"Sevilla"));
+
+        }
+        else{
+            Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'empty')]")).isDisplayed());
+        }
+
+
+
+
+
+    }
+    @Test
+    public void filterBySellergrandX() throws InterruptedException {
+        MainPage mainPage = new MainPage(driver);
+        mainPage.AccessTo_Mayruachenbat();
+
+        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
+
+        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
+
+        List<WebElement> productList=Page.getListProductBySeller("grandx");
+        if(productList.size()>0)
+        {
+            System.out.println(productList.size());
+            ItemListValidator Check= new ItemListValidator( driver);
+            Assert.assertTrue(Check.checkListProductBySeller(productList,"GRANDX"));
+
+        }
+        else{
+            Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'empty')]")).isDisplayed());
+        }
+
+
+
+
+
+    }
+    @Test
+    public void filterBySellerfagor() throws InterruptedException {
+        MainPage mainPage = new MainPage(driver);
+        mainPage.AccessTo_Mayruachenbat();
+
+        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
+
+        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
+
+        List<WebElement> productList=Page.getListProductBySeller("fagor");
+        if(productList.size()>0)
+        {
+            System.out.println(productList.size());
+            ItemListValidator Check= new ItemListValidator( driver);
+            Assert.assertTrue(Check.checkListProductBySeller(productList,"Fagor"));
+
+        }
+        else{
+            Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'empty')]")).isDisplayed());
+        }
+
+
+
+
+
+    }
+    // tuong tu voi cac nhan hang con lai
+    // tu day la cac nhan hang can phai an xem them
+    @Test
+    public void filterBySellerHafele() throws InterruptedException {
+        MainPage mainPage = new MainPage(driver);
+        mainPage.AccessTo_Mayruachenbat();
+
+        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
+
+        clickByJS(By.xpath("//h3[contains(text(),'HÃNG SẢN XUẤT')]/following-sibling::div[contains(@class,'category-menus')]//span[contains(text(),'Xem thêm')]"));
+
+        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
+
+        List<WebElement> productList=Page.getListProductBySeller("hafele");
+        if(productList.size()>0)
+        {
+            System.out.println(productList.size());
+            ItemListValidator Check= new ItemListValidator( driver);
+            Assert.assertTrue(Check.checkListProductBySeller(productList,"HAFELE"));
+
+        }
+        else{
+            Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'empty')]")).isDisplayed());
+        }
+
+
+
+
+
+    }
+    @Test
+    public void filterBySellerBauer() throws InterruptedException {
+        MainPage mainPage = new MainPage(driver);
+        mainPage.AccessTo_Mayruachenbat();
+
+        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
+
+        clickByJS(By.xpath("//h3[contains(text(),'HÃNG SẢN XUẤT')]/following-sibling::div[contains(@class,'category-menus')]//span[contains(text(),'Xem thêm')]"));
+
+        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
+
+        List<WebElement> productList=Page.getListProductBySeller("bauer");
+        if(productList.size()>0)
+        {
+            System.out.println(productList.size());
+            ItemListValidator Check= new ItemListValidator( driver);
+            Assert.assertTrue(Check.checkListProductBySeller(productList,"BAUER"));
+
+        }
+        else{
+            Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'empty')]")).isDisplayed());
+        }
+
+
+
+
+
+    }
+    @Test
+    public void filterBySellerFaster() throws InterruptedException {
+        MainPage mainPage = new MainPage(driver);
+        mainPage.AccessTo_Mayruachenbat();
+
+        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
+
+        clickByJS(By.xpath("//h3[contains(text(),'HÃNG SẢN XUẤT')]/following-sibling::div[contains(@class,'category-menus')]//span[contains(text(),'Xem thêm')]"));
+
+        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
+
+        List<WebElement> productList=Page.getListProductBySeller("faster");
+        if(productList.size()>0)
+        {
+            System.out.println(productList.size());
+            ItemListValidator Check= new ItemListValidator( driver);
+            Assert.assertTrue(Check.checkListProductBySeller(productList,"Faster"));
+
+        }
+        else{
+            Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'empty')]")).isDisplayed());
+        }
+
+
+
+
+
+    }
+    @Test
+    public void filterBySellerCanzy() throws InterruptedException {
+        MainPage mainPage = new MainPage(driver);
+        mainPage.AccessTo_Mayruachenbat();
+
+        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
+
+        clickByJS(By.xpath("//h3[contains(text(),'HÃNG SẢN XUẤT')]/following-sibling::div[contains(@class,'category-menus')]//span[contains(text(),'Xem thêm')]"));
+
+        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
+
+        List<WebElement> productList=Page.getListProductBySeller("canzy");
+        if(productList.size()>0)
+        {
+            System.out.println(productList.size());
+            ItemListValidator Check= new ItemListValidator( driver);
+            Assert.assertTrue(Check.checkListProductBySeller(productList,"Canzy"));
+
+        }
+        else{
+            Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'empty')]")).isDisplayed());
+        }
+
+
+
+
+
+    }
+    @Test
+    public void filterBySellerElectrolux() throws InterruptedException {
+        MainPage mainPage = new MainPage(driver);
+        mainPage.AccessTo_Mayruachenbat();
+
+        justWaitUntil(By.xpath("//span[contains(@class,'breadcrumb')]"));
+
+        clickByJS(By.xpath("//h3[contains(text(),'HÃNG SẢN XUẤT')]/following-sibling::div[contains(@class,'category-menus')]//span[contains(text(),'Xem thêm')]"));
+
+        MayRuaChenBatPage Page= new MayRuaChenBatPage( driver);
+
+        List<WebElement> productList=Page.getListProductBySeller("electrolux");
+        if(productList.size()>0)
+        {
+            System.out.println(productList.size());
+            ItemListValidator Check= new ItemListValidator( driver);
+            Assert.assertTrue(Check.checkListProductBySeller(productList,"Electrolux"));
+
+        }
+        else{
+            Assert.assertTrue(driver.findElement(By.xpath("//img[contains(@src,'empty')]")).isDisplayed());
+        }
+
+
+
+
+
+    }
+    // cac nhan hang con lai tuong tu
+
+
+
+
 
 
 

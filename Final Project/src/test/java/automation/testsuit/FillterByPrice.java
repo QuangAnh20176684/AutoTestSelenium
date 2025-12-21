@@ -25,7 +25,7 @@ public class FillterByPrice extends CommonBaseV2 {
     {
         driver.quit();
     }
-    //todo: Chỉnh lại các Test với filter theo cấu trúc mới
+
     @Test
     public void filterByPrice3000() throws InterruptedException {
         MainPage mainPage = new MainPage(driver);
